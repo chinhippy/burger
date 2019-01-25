@@ -1,0 +1,28 @@
+body {
+  background: url("../img/carbon_fibre.png");
+  color: white;
+  }
+
+  #burger-name {
+    width: 300px;
+    height: 25px;
+    margin-bottom: 10px;
+  }
+  
+  b {
+    font-size: 30px
+  }
+  
+  .not-devoured {
+    float: left;
+    margin: 20px
+  }
+  
+  .list-group-item {
+    background: transparent
+  }
+  
+  #scoobygify {
+    align-items: center;
+    width: 50%
+  }
