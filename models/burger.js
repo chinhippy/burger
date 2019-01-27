@@ -1,24 +1,24 @@
 //Connection to the ORM file
-const orm = require('../config/orm')
+const orm = require('../config/orm.js')
 
 let burger = {
-  all: function(cb) {
+  all: (cb) => {
     orm.selectAll('burgers', (res) => {
       cb(res)
     })
   },
 
-  create: function(db_col, db_row, cb) {
+  create: (db_col, db_row, cb) => {
     orm.insertOne('burgers', db_col, db_row, (res) => {
       cb(res)
     })
   },
 
-  update: function(keyValue, condition, cb) {
+  update: (keyValue, condition, cb) => {
     orm.updateOne('burgers', keyValue, condition, (res) => {
       cb(res)
-    })
+    });
   }
-}
+};
 
-module.exports = burger
+module.exports = burger;

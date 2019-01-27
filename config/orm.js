@@ -15,7 +15,7 @@ function questionMarks(num) {
 // Helper function for the SQL Syntax.
 // Will convert the key/value pair to be used in the SQL script:
 function convertObject(object) {
-    var array = [];
+    let array = [];
 
     for (var key in object) {
         var value = object[key];
@@ -32,27 +32,34 @@ function convertObject(object) {
 
 // ORM Object to be used in the SQL Script, based on the request
 const orm = {
-    selectAll: function (db_table, cb) {
+    selectAll: (db_table, cb) => {
         let queryString = 'SELECT * FROM ' + db_table + ';';
-
         console.log('SELECT ALL: ' + queryString)
 
-        connection.query(queryString, function (err, result) {
+        connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }
             cb(result)
-        })
+        });
     },
 
-    insertOne: function (db_table, db_col, db_row, cb) {
-        let queryString =
-            'INSERT INTO ' + db_table + ' (' + db_col.toString() + ') ' +
-            'VALUES (' + questionMarks(db_row.length) + ')';
+    insertOne: (db_table, db_col, db_row, cb) => {
+        // let queryString = 'INSERT INTO ' + db_table + ' (' + db_col.toString() + ') ' +
+        //     'VALUES (' + questionMarks(db_row.length) + ')';
+
+        let queryString = "INSERT INTO " + db_table;
+
+        queryString += " (";
+        queryString += cols.toString();
+        queryString += ") ";
+        queryString += "VALUES (";
+        queryString += questionMarks(db_row.length);
+        queryString += ") ";
 
         console.log('INSERT ONE: ' + queryString)
 
-        connection.query(queryString, db_row, function (err, result) {
+        connection.query(queryString, db_row, (err, result) => {
             if (err) {
                 throw err;
             }
@@ -60,12 +67,18 @@ const orm = {
         })
     },
 
-    updateOne: function (db_table, keyValue, condition, cb) {
-        let queryString = 'UPDATE ' + db_table + ' SET ' + convertObject(keyValue) + ' WHERE ' + condition;
+    updateOne: (db_table, keyValue, condition, cb) => {
+        // let queryString = 'UPDATE ' + db_table + ' SET ' + convertObject(keyValue) + ' WHERE ' + condition;
+        let queryString = 'UPDATE ' + db_table;
+
+        queryString += ' SET ';
+        queryString += convertObject(keyValue);
+        queryString += ' WHERE ';
+        queryString += condition;
 
         console.log('UPDATE ONE: ' + queryString)
 
-        connection.query(queryString, function (err, result) {
+        connection.query(queryString, (err, result) => {
             if (err) {
                 throw err;
             }

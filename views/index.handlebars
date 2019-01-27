@@ -19,7 +19,7 @@
       <h2 class="text-center">Burgers to Devour</h2>
 
       <ul class="list-group list-group-flush">
-        {{#each burgerName }}
+        {{#each burgers }}
         {{#unless devoured }}
         <li class="list-group-item">
           {{ burger_name }}
@@ -40,7 +40,7 @@
       <h2 class="text-center">Devoured Burgers</h2>
 
       <ul class="list-group list-group-flush">
-        {{#each burgerName }}
+        {{#each burgers }}
         {{#if devoured }}
         <li class="list-group-item">
           <s>{{ burger_name }}</s>
