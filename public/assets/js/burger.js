@@ -28,6 +28,7 @@ $(function () {
         type: 'PUT',
         data: newValue
       }).then(function () {
+        console.log('Nom Nom Nom')
         location.reload()
       })
     })  
