@@ -1,5 +1,5 @@
 // Importing the connection for MySQL
-const connection = require('../config/connection')
+const connection = require('../config/connection.js')
 
 // Helper function for the SQL Syntax.  
 // Will put a "?" for each value being passed through to the SQL script:
@@ -51,7 +51,7 @@ const orm = {
         let queryString = "INSERT INTO " + db_table;
 
         queryString += " (";
-        queryString += cols.toString();
+        queryString += db_col.toString();
         queryString += ") ";
         queryString += "VALUES (";
         queryString += questionMarks(db_row.length);

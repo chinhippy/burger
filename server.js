@@ -2,7 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const PORT = process.env.PORT || 8080;
 const app = express();
-const routes = require('../controllers/burgers_controller.js');
+const routes = require('./controllers/burgers_controller.js');
   
 // Set "Public" as static so can use CSS/jQuery with Handlebar files
 app.use(express.static('public'));
