@@ -19,8 +19,8 @@ require("dotenv").config();
 // });
 
 let connection;
-
-if (process.env.JAWSDB_URL) {
+//Change NODE_ENV to 'production' to run live JAWSDB
+if (process.env.JAWSDB_URL && process.env.NODE_ENV === 'production') {
   connection = mysql.createConnection(process.env.JAWSDB_URL)
   console.log('hit jaws connection', connection)
 } else {

@@ -20,7 +20,7 @@ $(function () {
     // Function that will update burger's devoured status from False to True
     $('.change-status').on('click', function(event) {
       let id = $(this).data('id')
-      console.log(this);
+      console.log(id);
           newValue = {
             devoured: true
           }
