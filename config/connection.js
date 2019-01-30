@@ -1,5 +1,6 @@
 // Setting up connection to the MySQL DB
 var mysql = require("mysql")
+require("dotenv").config();
 // let connection = mysql.createConnection({
 //   host: "localhost",
 //   port: 3306,
@@ -17,16 +18,20 @@ var mysql = require("mysql")
 
 // });
 
-if (process.env.JAWS_DB) {
-  let connection = mysql.createConnection(process.env.JAWS_DB)
+let connection;
+
+if (process.env.JAWSDB_URL) {
+  connection = mysql.createConnection(process.env.JAWSDB_URL)
+  console.log('hit jaws connection', connection)
 } else {
-  let connection = mysql.createConnection({
+  connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",  
     password: "Goof4ball$",
     database: "burgers_db"
   }); 
+  console.log('oops, hit local connection', connection)
 }
 
 
