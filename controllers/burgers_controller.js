@@ -29,7 +29,7 @@ router.post('/api/burgers', (req, res) => {
 });
 
 router.put('/api/burgers/:id', (req, res) => {
-  let params1 = 'id = ' + req.params.id
+  let params1 = req.params.id
   console.log('Paramater to Update: ' + params1)
 
   burger.update({

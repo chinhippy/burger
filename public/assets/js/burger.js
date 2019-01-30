@@ -18,18 +18,19 @@ $(function () {
     })
   
     // Function that will update burger's devoured status from False to True
-    $('.change-status').on('click', (event) => {
-      let id = $(this).data('id'),
+    $('.change-status').on('click', function(event) {
+      let id = $(this).data('id')
+      console.log(this);
           newValue = {
             devoured: true
           }
   
-      $.ajax('/api/burgers/' + id, {
-        type: 'PUT',
-        data: newValue
-      }).then(function () {
-        console.log('Nom Nom Nom')
-        location.reload()
-      })
+      // $.ajax('/api/burgers/' + id, {
+      //   type: 'PUT',
+      //   data: newValue
+      // }).then(function () {
+      //   console.log('Nom Nom Nom')
+      //   location.reload()
+      // })
     })  
   })
