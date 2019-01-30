@@ -25,12 +25,12 @@ $(function () {
             devoured: true
           }
   
-      // $.ajax('/api/burgers/' + id, {
-      //   type: 'PUT',
-      //   data: newValue
-      // }).then(function () {
-      //   console.log('Nom Nom Nom')
-      //   location.reload()
-      // })
+      $.ajax('/api/burgers/' + id, {
+        type: 'PUT',
+        data: newValue
+      }).then(function () {
+        console.log('Nom Nom Nom')
+        location.reload()
+      })
     })  
   })

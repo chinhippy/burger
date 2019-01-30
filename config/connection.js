@@ -16,7 +16,19 @@ var mysql = require("mysql")
 //   database: "burlfl6fk4i12cm458vgers_db"
 
 // });
-let connection = mysql.createConnection("mysql://i4fc6dx8atov8c1d:wf8fpof17h8zb2gy@axxb6a0z2kydkco3.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/lfl6fk4i12cm458v");
+
+if (process.env.JAWS_DB) {
+  let connection = mysql.createConnection(process.env.JAWS_DB)
+} else {
+  let connection = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",  
+    password: "Goof4ball$",
+    database: "burgers_db"
+  }); 
+}
+
 
 
 
